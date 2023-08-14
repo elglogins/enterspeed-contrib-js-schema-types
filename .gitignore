@@ -1,3 +1,6 @@
+# Local publishing
+.local-pack
+
 # Logs
 logs
 *.log

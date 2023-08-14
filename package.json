@@ -1,0 +1,33 @@
+{
+  "name": "@elglogins/enterspeed-contrib-js-schemas",
+  "version": "0.1.6",
+  "description": "Strongly typed types for Enterspeed JavaScript schemas.",
+  "main": "src/index.ts",
+  "scripts": {
+    "publish": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && npm publish --access public",
+    "publish-localy": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && local-package-publisher -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elglogins/enterspeed-contrib-js-schema-types.git"
+  },
+  "keywords": [
+    "enterspeed",
+    "schema",
+    "javascript"
+  ],
+  "files": [
+    "./dist/index.d.ts"
+  ],
+  "typings": "./dist/index.d.ts",
+  "author": "Elgars Logins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elglogins/enterspeed-contrib-js-schema-types/issues"
+  },
+  "homepage": "https://github.com/elglogins/enterspeed-contrib-js-schema-types#readme",
+  "devDependencies": {
+    "dts-bundle-generator": "^8.0.1",
+    "local-package-publisher": "^1.0.5"
+  }
+}
