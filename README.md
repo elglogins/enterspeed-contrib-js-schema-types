@@ -33,13 +33,14 @@ npm i @elglogins/enterspeed-contrib-js-schemas
 
 3. Decorate your export object with corresponding schema type
 ```js
-/** @type {Enterspeed.NormalSchema} */
+/** @type {Enterspeed.FullSchema} */
 export default {
   triggers: function(context) {
     context.triggers('umbraco', ['page', 'article']);
   },
   actions: function(sourceEntity, context) {
-    context.reprocessParent();
+    context.reprocess('anotherSchema').bySchema();
+    context.destination('algolia');
   },
   routes: (sourceEntity, context) => context.url(sourceEntity.url),
   properties: function (sourceEntity, context) {
@@ -47,7 +48,7 @@ export default {
     return {
       title: p.title,
       blocks: context.partial("blocks", p.blocks),
-      aboutUsPage: context.reference("page"),
+      aboutUsPage: context.reference("page").children('type eq `product`').orderBy({direction: 'asc', propertyName: 'asd' }).limit(2),
     }
   }
 }
@@ -56,4 +57,10 @@ export default {
 ## Bundling guide
 ```
 dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts
+```
+
+```
+local-package-publisher -p
+npm link @elglogins/enterspeed-contrib-js-schemas
+npm publish --access public
 ```

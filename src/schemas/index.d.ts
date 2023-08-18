@@ -1,2 +1,2 @@
-export type * from './normal-schema';
+export type * from './full-schema';
 export type * from './partial-schema';
