@@ -15,7 +15,7 @@ export interface ITriggersSchemaContext {
    */
   triggers(
     sourceGroupAlias: string,
-    sourceEntityTypes: [string, ...string[]]
+    sourceEntityTypes: string[]
   ): ITriggersBySourceGroupBuilder;
 }
 
