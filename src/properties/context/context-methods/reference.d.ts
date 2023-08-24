@@ -22,6 +22,15 @@ export interface IReferenceBuilder {
   parent(): IParentReferenceBuilder;
 
   /**
+   * Creates a reference to the current source entity
+   * @example Example of usage
+   * ```js
+   * const selfPage = context.reference("page").self();
+   * ```
+   */
+  self(): ISelfReferenceBuilder;
+
+  /**
    * Creates a reference to all the children of the current source entity
    * @param filter Your filtering criteria
    * @example Example of usage
@@ -134,4 +143,7 @@ export interface IReferenceByOriginIdsBuilder {
 }
 
 export interface IParentReferenceBuilder {
+}
+
+export interface ISelfReferenceBuilder {
 }
