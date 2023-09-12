@@ -7,7 +7,8 @@ import { IActionsSchemaContext } from "../actions";
 export class FullSchema {
   /**
    * The `triggers` method is where you define the source group and the types the schema should process.
-   * @see {@link https://docs.enterspeed.com/reference/js/triggers} documentation for triggers
+   * @see {@link https://docs.enterspeed.com/reference/js/triggers} documentation for triggers. 
+   * {@label SCHEMA_FUNCTION}
    */
   triggers: (
     context: ITriggersSchemaContext
@@ -15,7 +16,8 @@ export class FullSchema {
 
   /**
    * The `actions` method is used if you need to trigger other schemas or processes.
-   * @see {@link https://docs.enterspeed.com/reference/js/actions} documentation for actions
+   * @see {@link https://docs.enterspeed.com/reference/js/actions} documentation for actions. 
+   * {@label SCHEMA_FUNCTION}
    */
   actions?: (
     sourceEntity: ISourceEntity,
@@ -24,7 +26,8 @@ export class FullSchema {
 
   /**
    * The `routes` method is where you define how you fetch the generated view from the Delivery API. If your view should be routeable you must implement the routes method and create one or more routes.
-   * @see {@link https://docs.enterspeed.com/reference/js/routes} documentation for routes
+   * @see {@link https://docs.enterspeed.com/reference/js/routes} documentation for routes. 
+   * {@label SCHEMA_FUNCTION}
    */
   routes?: (
     sourceEntity: ISourceEntity,
@@ -34,7 +37,8 @@ export class FullSchema {
   /**
    * The `properties` method is where you define the output that goes into the view you fetch from the delivery API.
    * @returns The properties method must return an object with the data you want to include in your view.
-   * @see {@link https://docs.enterspeed.com/reference/js/properties} documentation for properties
+   * @see {@link https://docs.enterspeed.com/reference/js/properties} documentation for properties. 
+   * {@label SCHEMA_FUNCTION}
    */
   properties: (
     sourceEntity: ISourceEntity,
