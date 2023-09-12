@@ -33,9 +33,13 @@ export interface IReferenceBuilder {
   /**
    * Creates a reference to all the children of the current source entity
    * @param filter Your filtering criteria
-   * @example Example of usage
+   * @example Example without additional filter
    * ```js
    * const childPages = context.reference("page").children();
+   * ```
+   * @example Example with additional filter
+   * ```js
+   * const childPages = context.reference("page").children("type eq 'subpage'");
    * ```
    */
   children(filter?: string): IReferenceChildrenFilterBuilder;
