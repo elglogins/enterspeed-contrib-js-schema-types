@@ -56,7 +56,7 @@ export default {
 
 ## Bundling guide
 ```
-dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts
+dts-bundle-generator --config dts-bundle-generator.config.json
 ```
 
 ```
