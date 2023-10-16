@@ -4,7 +4,7 @@ import { ISchema } from "../../schemas/schema";
 
 export namespace Schemas {
 
-    export class Full extends BaseFullSchema<Record<string, any>> {
+    export class Full extends BaseFullSchema<Record<string, any>, Record<string, unknown>> {
     }
 
     export class Partial implements ISchema {

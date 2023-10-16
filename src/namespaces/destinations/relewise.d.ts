@@ -9,7 +9,7 @@ export namespace Destinations.Relewise {
         /**
          * Relewise product schema output
          */
-        export class Product extends BaseFullSchema<ProductProperties> {
+        export class Product extends BaseFullSchema<ProductProperties, ProductDestinationOptions> {
         }
     }
 
@@ -20,7 +20,13 @@ export namespace Destinations.Relewise {
         /**
         * Product title
         */
-           title: string
-           price?: number
+        title: string
+        price?: number
+    }
+
+    class ProductDestinationOptions {
+        type: 'product'
+        upsertMethod?: 'clear' | 'replace' | 'append'
+        deleteMethod?: 'delete' | 'deleteIfNotExists'
     }
 }

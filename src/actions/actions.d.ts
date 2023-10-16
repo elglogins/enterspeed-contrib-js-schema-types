@@ -4,7 +4,7 @@ import { IReprocessSchemaActionsBuilder } from './reprocess/context/reprocess';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IActionBuilder {}
 
-export interface IActionsSchemaContext {
+export interface IActionsSchemaContext<TDestinationOptions> {
     /**
      * Reprocess a schema based on its alias.
      * @see {@link https://docs.enterspeed.com/reference/js/actions#reprocess} documentation for reprocess
@@ -21,6 +21,6 @@ export interface IActionsSchemaContext {
      * context.destination('webhook');
      * ```
      */
-    destination(destinationAlias: string): IDestinationByAliasBuilder;
+    destination(destinationAlias: string): IDestinationByAliasBuilder<TDestinationOptions>;
   }
   

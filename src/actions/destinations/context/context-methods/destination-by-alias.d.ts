@@ -1,7 +1,7 @@
 import { Nullable } from '../../../../types';
 import { IDestinationBuilder } from '../destinations';
 
-export interface IDestinationByAliasBuilder extends IDestinationBuilder {
+export interface IDestinationByAliasBuilder<TDestinationOptions> extends IDestinationBuilder {
     /**
      * Option to specify dynamic configuration for destination provider. 
      * @param options 
@@ -10,5 +10,5 @@ export interface IDestinationByAliasBuilder extends IDestinationBuilder {
      * context.destination('algolia').options({ customId: `prefixed-${sourceEntity.originId}` });
      * ```
      */
-    options(options: Nullable<Record<string, unknown>>): this
+    options(options: Nullable<TDestinationOptions>): this
 }
