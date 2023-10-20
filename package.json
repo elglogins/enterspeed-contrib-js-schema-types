@@ -3,9 +3,17 @@
   "version": "0.3.3",
   "description": "Strongly typed types for Enterspeed JavaScript schemas.",
   "main": "src/index.ts",
+  "watch": {
+    "publish-locally": {
+      "patterns": ["src"],
+      "extensions": "ts",
+      "quiet": false
+    }
+  },
   "scripts": {
     "publish": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && npm publish --access public",
-    "publish-localy": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && local-package-publisher -p"
+    "publish-locally": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && local-package-publisher -p",
+    "watch": "npm-watch publish-locally"
   },
   "repository": {
     "type": "git",
@@ -29,5 +37,8 @@
   "devDependencies": {
     "dts-bundle-generator": "^8.0.1",
     "local-package-publisher": "^1.0.5"
+  },
+  "dependencies": {
+    "npm-watch": "^0.11.0"
   }
 }
