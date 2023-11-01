@@ -56,11 +56,16 @@ export default {
 
 ## Bundling guide
 ```
-dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts
+npm run publish-locally
 ```
 
 ```
 local-package-publisher -p
 npm link @elglogins/enterspeed-contrib-js-schemas
 npm publish --access public
+```
+
+## Watcher
+```
+npm run watch
 ```

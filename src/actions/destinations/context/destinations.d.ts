@@ -4,5 +4,5 @@ import { IDestinationByAliasBuilder } from './context-methods/destination-by-ali
 export interface IDestinationBuilder {}
 
 export interface IDestinationsSchemaContext {
-  destination(destinationAlias: string): IDestinationByAliasBuilder;
+  destination(destinationAlias: string): IDestinationByAliasBuilder<unknown>;
 }
