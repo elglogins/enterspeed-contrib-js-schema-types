@@ -1,5 +1,4 @@
-import { IPartialCommand } from './context-methods/partial';
-import { IReferenceBuilder } from './context-methods/reference';
+import { IPropertiesReferenceBuilder } from './context-methods';
 
 /**
  * The context object available in schemas
@@ -19,8 +18,5 @@ export interface IPropertiesContext {
    * @see {@link https://docs.enterspeed.com/reference/js/properties#reference}
    * @param schemaAlias The alias of a schema.
    */
-  reference(schemaAlias: string): IReferenceBuilder;
+  reference(schemaAlias: string): IPropertiesReferenceBuilder;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface IPropertiesBuildCommands {}
