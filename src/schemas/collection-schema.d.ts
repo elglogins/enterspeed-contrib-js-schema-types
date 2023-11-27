@@ -1,8 +1,8 @@
 import {ITriggersSchemaContext} from "../triggers";
 import {ISourceEntity} from "../models";
-import {IRoutesSchemaContext} from "../routes";
-import {ICollectionItemsContext} from "../collection-items/context/collection-items-context";
-import {IReferenceBuilder} from "../references";
+import {IRouteByHandleBuilder} from "../routes";
+import {IReferenceBuilder, IReferenceByOriginIdsBuilder, IReferenceChildrenFilterBuilder, IReferenceFilterBuilder} from "../references";
+import { Nullable } from "../types";
 
 export class CollectionSchema {
     /**
@@ -21,7 +21,7 @@ export class CollectionSchema {
      */
     routes?: (
         sourceEntity: ISourceEntity,
-        context: IRoutesSchemaContext
+        context: IRoutesCollectionSchemaContext
     ) => void;
 
     /**
@@ -35,3 +35,65 @@ export class CollectionSchema {
         context: ICollectionItemsContext
     ) => Promise<IReferenceBuilder> | IReferenceBuilder;
 }
+
+/**
+ * The context object available in schemas
+ */
+export interface ICollectionItemsContext {
+    /**
+     * Referencing a full schema. References to other schemas are resolved on delivery request time.
+     * @see {@link https://docs.enterspeed.com/reference/js/properties#reference}
+     * @param schemaAlias The alias of a schema.
+     */
+    reference(schemaAlias: string): ICollectionItemsReferenceBuilder;
+}
+
+export interface ICollectionItemsReferenceBuilder {
+    /**
+     * Using the filter function lets you do a dynamic search for source entities you wnat to make references to
+     * @param filter Your filtering criteria
+     * @example Example of usage
+     * ```js
+     * const newsTeasers = context.reference("newsTeaser").filter("type eq 'newsArticle'");
+     * ```
+     */
+    filter(filter: string): IReferenceFilterBuilder;
+
+    /**
+     * Creates a reference to all the children of the current source entity
+     * @param filter Your filtering criteria
+     * @example Example without additional filter
+     * ```js
+     * const childPages = context.reference("page").children();
+     * ```
+     * @example Example with additional filter
+     * ```js
+     * const childPages = context.reference("page").children("type eq 'subpage'");
+     * ```
+     */
+    children(filter?: string): IReferenceChildrenFilterBuilder;
+
+    /**
+     * Creates a references to list of source entities by their origin id
+     * @param originIds A list of original ids from the source system
+     * @example Example of usage
+     * ```js
+     * const contentTeasers = context.reference("contentTeaser").byOriginIds(sourceEntity.properties.links.map(link => link.id));
+     * ```
+     */
+    byOriginIds(originIds: string[]): IReferenceByOriginIdsBuilder;
+}
+
+export interface IRoutesCollectionSchemaContext {
+    /**
+     * A handle is a key from which you can fetch the view. A view can have multiple handles.
+     * @see {@link https://docs.enterspeed.com/reference/js/routes#handle} documentation for route handles
+     * @param handle
+     * @example Example of usage
+     * ```js
+     * context.handle('origin-' + sourceEntity.originId);
+     * ```
+     */
+    handle(handle: Nullable<string>): IRouteByHandleBuilder;
+  }
+  
