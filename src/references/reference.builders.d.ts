@@ -89,6 +89,6 @@ export interface ISelfReferenceBuilder extends IReferenceBuilder {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export class IReferenceBuilder {
-    test: string;
+export interface IReferenceBuilder {
+    schemaAlias: string
 }

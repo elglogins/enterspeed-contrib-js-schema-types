@@ -7,4 +7,3 @@ export * from './triggers';
 export * from './schemas';
 export * from './namespaces';
 export * from './references';
-export * from './collection-items';
