@@ -1,4 +1,4 @@
-import {IOrderBy} from "./order-by";
+import {IOrderBy} from "../lookups/order-by";
 
 export interface IReferenceFilterBuilder extends IReferenceBuilder {
 
