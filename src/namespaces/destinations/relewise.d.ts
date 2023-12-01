@@ -37,6 +37,7 @@ export namespace Destinations.Relewise {
                 data?: { [key: string]: DataValue; } 
             }
             variants?: {
+                id: string
                 displayName?: Multilingual
                 assortments?: number[]
                 listPrice?: MultiCurrency
