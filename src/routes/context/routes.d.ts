@@ -1,7 +1,7 @@
+import { ILookupBuilder } from '../../lookups';
 import { Nullable } from '../../types';
 import { IRouteByHandleBuilder } from './context-methods/route-by-handle';
 import { IRouteByUrlBuilder } from './context-methods/route-by-url';
-import { IRouteLookupBuilder } from './context-methods/route-lookup';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IRouteBuilder {}
@@ -29,5 +29,5 @@ export interface IRoutesSchemaContext {
    */
   handle(handle: Nullable<string>): IRouteByHandleBuilder;
 
-  lookup(filter: string): IRouteLookupBuilder;
+  lookup(filter: string): ILookupBuilder;
 }

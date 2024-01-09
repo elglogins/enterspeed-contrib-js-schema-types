@@ -1,3 +1,4 @@
+import { ILookupBuilder } from '../../lookups';
 import { IPropertiesReferenceBuilder } from './context-methods';
 
 /**
@@ -19,4 +20,6 @@ export interface IPropertiesContext {
    * @param schemaAlias The alias of a schema.
    */
   reference(schemaAlias: string): IPropertiesReferenceBuilder;
+
+  lookup(filter: string): ILookupBuilder;
 }
