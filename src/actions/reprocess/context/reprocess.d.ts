@@ -1,6 +1,7 @@
-import { IReprocessByOriginIdBuilder } from './context-methods/reprocess-by-origin-id';
-import { IReprocessParentBuilder } from './context-methods/reprocess-parent';
-import { IReprocessSchemaBuilder } from './context-methods/reprocess-schema';
+import { IReprocessByFilterBuilder } from "./context-methods/reprocess-by-filter";
+import { IReprocessByOriginIdBuilder } from "./context-methods/reprocess-by-origin-id";
+import { IReprocessParentBuilder } from "./context-methods/reprocess-parent";
+import { IReprocessSchemaBuilder } from "./context-methods/reprocess-schema";
 
 export interface IReprocessSchemaActionsBuilder {
   /**
@@ -14,7 +15,7 @@ export interface IReprocessSchemaActionsBuilder {
 
   /**
    * Reprocess a specific source entity based on its origin id
-   * @param schemaAlias 
+   * @param schemaAlias
    * @example Example of usage
    * ```js
    * context.reprocess('mySchemaAlias').byOriginId(sourceEntity.properties.link.id)
@@ -30,4 +31,13 @@ export interface IReprocessSchemaActionsBuilder {
    * ```
    */
   bySchema(): IReprocessSchemaBuilder;
+
+  /**
+   * Reprocess source entities that matches filter
+   * @example Example of usage
+   * ```js
+   * context.reprocess('mySchemaAlias').filter("type eq 'contentPage'")
+   * ```
+   */
+  filter(): IReprocessByFilterBuilder;
 }
